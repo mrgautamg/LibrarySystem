@@ -33,4 +33,28 @@ public class LibraryMember implements Serializable {
 	}
 	
 	private static final long serialVersionUID = -2226197306790714013L;
+	
+	public String getMemberId() {
+		return memberId;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+
+	public CheckoutRecord getRecord() {
+		return record;
+	}
 }
