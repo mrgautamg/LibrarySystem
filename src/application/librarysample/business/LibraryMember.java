@@ -4,12 +4,24 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 public class LibraryMember implements Serializable {
-	private CheckoutRecord record = new CheckoutRecord();
-	public LibraryMember(String name) {
-		this.name = name;
-	}
-	private String name;
+	//private String name;
+	private String memberId;
+	private String firstName;
+	private String lastName;
+	private Address address;
+	private String phoneNo;
 	
+	private CheckoutRecord record = new CheckoutRecord();
+	
+	public LibraryMember(String memberId, String firstName, String lastName,
+			Address address, String phoneNo) {
+		this.memberId = memberId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+		this.phoneNo = phoneNo;
+	}
+
 	public void checkout(LendableCopy copy, LocalDate checkoutDate, LocalDate dueDate) {
 		CheckoutRecordEntry entry = new CheckoutRecordEntry(copy, checkoutDate, dueDate);
 		record.addEntry(entry);
@@ -17,7 +29,7 @@ public class LibraryMember implements Serializable {
 	}
 	
 	public String toString() {
-		return "Checkout record for library member " + name + ": " + record;
+		return "Checkout record for library member " + firstName + ": " + record;
 	}
 	
 	private static final long serialVersionUID = -2226197306790714013L;
